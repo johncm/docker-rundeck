@@ -4,7 +4,9 @@ rundeck-base:
   volumes:
     - /rundeck
 tomcat-rundeck:
-  build: tomcat-rundeck
+  extends:
+    file: common.yml
+    service: tomcat-rundeck
   container_name: rundeck
   environment:
     CATALINA_OPTS: -Xmx1024m -Xms256m -Drdeck.base=/rundeck
