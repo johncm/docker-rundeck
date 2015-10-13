@@ -1,3 +1,9 @@
+rundeck-base:
+  image: tianon/true
+  volumes:
+   - /rundeck
 tomcat:
   image: tomcat
   container_name: rundeck
+  volumes_from:
+   - rundeck-base
