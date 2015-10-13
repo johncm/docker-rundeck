@@ -3,8 +3,8 @@ rundeck-base:
   container_name: rundeck-base
   volumes:
    - /rundeck
-tomcat:
-  image: tomcat
+tomcat-rundeck:
+  build: tomcat-rundeck
   container_name: rundeck
   volumes_from:
    - rundeck-base
