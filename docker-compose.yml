@@ -6,5 +6,8 @@ rundeck-base:
 tomcat-rundeck:
   build: tomcat-rundeck
   container_name: rundeck
+  environment:
+   - RDECK_BASE: /rundeck
+   - CATALINA_OPTS: --Xmx1024m -Xms256m
   volumes_from:
    - rundeck-base
