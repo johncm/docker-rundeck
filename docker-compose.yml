@@ -1,2 +1,3 @@
 tomcat:
   image: tomcat
+  container_name: rundeck
