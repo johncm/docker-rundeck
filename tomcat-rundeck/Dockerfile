@@ -21,3 +21,5 @@ RUN set -x && \
 # the normal jetty/launcher installer creates a "log4j.properties" file for you.
 # You would need to create one within the classpath for the webapp, e.g. at $CATALINA_HOME/webapps/rundeck/WEB-INF/classes/log4j.properties
 RUN touch $RUNDECK_WEBAPP/WEB-INF/classes/log4j.properties
+
+COPY tomcat-users.xml $CATALINA_HOME/conf/
