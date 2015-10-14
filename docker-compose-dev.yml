@@ -4,6 +4,6 @@ tomcat-rundeck:
     service: tomcat-rundeck
   container_name: rundeck-dev
   environment:
-    CATALINA_OPTS: -Xmx1024m -Xms256m -Drdeck.base=/rundeck
+    CATALINA_OPTS: -XX:MaxPermSize=256m -Xmx1024m -Xms256m -Drdeck.base=/rundeck
   volumes:
     - /rundeck

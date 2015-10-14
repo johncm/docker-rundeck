@@ -9,7 +9,7 @@ ENV RUNDECK_WAR rundeck.war
 ENV APP_CONTEXT rundeck
 ENV RUNDECK_WEBAPP $CATALINA_HOME/webapps/$APP_CONTEXT
 
-ENV UNZIP -q -d $RUNDECK_WEBAPP
+ENV UNZIP -qaL -d $RUNDECK_WEBAPP
 # Could have piped the curl to the unzip, but if download fails, I want it to show the error as a download issue.
 RUN set -x && \
 	mkdir -p $RUNDECK_WEBAPP && \ 
