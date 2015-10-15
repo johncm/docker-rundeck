@@ -13,7 +13,7 @@ ENV UNZIP -qaL -d $RUNDECK_WEBAPP
 # Could have piped the curl to the unzip, but if download fails, I want it to show the error as a download issue.
 RUN set -x && \
 	mkdir -p $RUNDECK_WEBAPP && \ 
-	curl -fSL "$RUNDECK_WAR_URL" -o $RUNDECK_WAR && \
+	curl -fsL "$RUNDECK_WAR_URL" -o $RUNDECK_WAR && \
 	unzip $RUNDECK_WAR && \
 	rm $RUNDECK_WAR
 
@@ -22,4 +22,5 @@ RUN set -x && \
 # You would need to create one within the classpath for the webapp, e.g. at $CATALINA_HOME/webapps/rundeck/WEB-INF/classes/log4j.properties
 RUN touch $RUNDECK_WEBAPP/WEB-INF/classes/log4j.properties
 
+# Replace tomcat-users with standard rundeck users and roles
 COPY tomcat-users.xml $CATALINA_HOME/conf/
